@@ -1,0 +1,22 @@
+<div class="col-md-9">
+
+    <br>
+    <img id="main-header-image" src="/img/big_logo.gif" style="width: 30%; margin: auto; display: block "/>
+    <br>
+    <br>
+    <div style="width: 70%; margin: auto; display: block ">
+        <div id="registrationForm" class="form-group">
+            <p style="color: <?=$data['color']?>"><?=$data['message']?></p>
+            <p>Заполните форму для регистрации</p>
+            <div id='jsWarnings' style='color: red'></div>
+            <form id="reg" action="" method="post" role="form" onSubmit="return validate_signup(this)">
+                <input class="form-control" type="text" name="email" placeholder="Введите email" form="reg" value="<?=$data['email']?>"><br>
+                <input class="form-control" type="password" name="password" placeholder="Введите пароль" form="reg"><br>
+                <input class="form-control" type="password" name="passwordRepeat" placeholder="Повторите пароль" form="reg"><br>
+                <input class="btn btn-danger" type="submit" value="Зарегистрироваться" form="reg">
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>

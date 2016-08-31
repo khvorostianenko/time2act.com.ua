@@ -1,0 +1,10 @@
+<div class="col-md-9">
+
+    <div class="accordeon">
+
+<?php for($i = 0; $i < count($data['faq'])/2; $i++): ?>
+            <dl><dt class="bg-info"><?=$data['faq'][$i*2]?></dt><dd><?=$data['faq'][$i*2+1]?></dd></dl>
+<?php endfor; ?>
+
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Time2Act</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min-misha.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/accordeon.css">
+    <script src="/js/form_validate.js"></script>
+    <script src="/js/accordeon.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,700&subset=latin,Cyrillic" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<!-- Шапка конец -->
+<!-- Верхнее меню начало (для залогиненных и нет) -->
+
+<div class="section header">
+    <div class="mainNav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="/signin" class="btn log">Личный кабинет</a>
+
+<?php if(!Session::get('login')): ?>
+                    <a href="/signup" class="nav">Зарегистрироваться</a>
+<?php endif; ?>
+
+                </div>
+                <div class="col-md-4">
+                    <a href="/" class="nav">Главная</a>
+                    <a href="/about" class="nav">О сервисе</a>
+                    <a href="/faq" class="nav">Справка</a>
+                    <a href="/news" class="nav">Новости</a>
+                </div>
+<?php if(Session::get('login')): ?>
+                <div class="col-md-4">
+                    <span class="span-text">Добрый день, <?=Session::get('login')?>!</span>
+                    <a href="/logout" class="nav">Выход</a>
+                </div>
+<?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mainLogo">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><a href='/'><img src="/img/t2mainlogo.jpg" class="logo" alt="Time2Act"></a></div>
+
+            <!--Что-то в этой картинке надо менять или удалять-->
+            <div class="col-md-4"><img src="/img/cashback.jpg" class="logo" alt="Time2Act"></div>
+
+            <div class="contacts col-md-4"><span class="skype">timetogo</span></br><span class="phone">timetogo</span></div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Верхнее меню конец (для залогиненных и нет) -->
+
+<!-- Основной раздел начало -->
+<div class="content">
+    <div class="row">
+
+        <!-- Основной раздел (вставка) начало -->
+        <?=$data['content'] ?>
+        <!-- Основной раздел (вставка) конец -->
+
+        <!-- Основной раздел (виджет ВК) начало -->
+        <div class="col-md-3">
+            <aside>
+                <img src="/img/banner.jpg" class="asideimage" alt="Облака">
+            </aside>
+            <br>
+            <div id="vk_groups"></div>
+            <script type="text/javascript">
+                VK.Widgets.Group("vk_groups", {mode: 1, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 124103670);
+                </script>
+            <br><br>
+        </div>
+        <!-- Основной раздел (виджет ВК) конец -->
+
+<!-- Основной раздел конец -->
+
+<!-- Футер начало -->
+    </div>
+</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"><p><a href="#">Наверх</a></p></div>
+                <div class="col-md-5"><p><a href="#">Правила кэшбек сервиса Time2Act</a></p></div>
+                <div class="col-md-5"><p>email:time2act@mail.ru skype:time2act</p></div>
+            </div>
+        </div>
+    </footer>
+<!-- Футер конец -->
+
+</body>
+</html>
