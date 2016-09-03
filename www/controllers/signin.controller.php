@@ -36,7 +36,7 @@ class SigninController extends Controller{
                     $hash = $user['password'];
                     if(Password::verifyPassAndHash($password, $hash))
                     {
-                        echo 'Sov';
+                        Session::set('role', $user['role']);
                         Session::set('login', $email);
                         header('Location: user');
                     } else {

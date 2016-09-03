@@ -34,11 +34,18 @@ class App{
         $controller_method = strtolower(self::$router->getMethodPrefix()).self::$router->getAction();
 
         $layout = self::$router->getRoute();
+
         if( $layout == 'admin' && Session::get('role') != 'admin'){
             if ($controller_method != 'admin_index' || $controller_class != 'SigninController'){
                 Router::redirect('/admin/signin');
             }
         }
+
+        if( $layout == 'user' && Session::get('role') != 'user' && Session::get('role') != 'admin'){
+            Router::redirect('/signin');
+        }
+        
+        
 
         // Создаем новый экземепляр класс ContactsController
         $controller_object = new $controller_class();

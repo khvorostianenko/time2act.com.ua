@@ -14,5 +14,16 @@ class SigninModel extends Model
         return false;
     }
 
+    public function getAdminByLogin($email)
+    {
+        $email = $this->db->escape($email);
+        $sql = "select * from users where email = '{$email}' AND role = 'admin'";
+        $result = $this->db->query($sql);
+        if( isset($result[0])){
+            return $result[0];
+        }
+        return false;
+    }
+
 }
 

@@ -27,9 +27,9 @@ class PagesController extends Controller{
     }
 
     public function user_index(){
-        if(!Session::get('login')){
-            Router::redirect('/signin');
-        }
+//        if(!Session::get('login')){
+//            Router::redirect('/signin');
+//        }
     }
 
     public function admin_index(){
