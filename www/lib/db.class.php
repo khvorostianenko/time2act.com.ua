@@ -14,6 +14,9 @@ class DB{
         if(mysqli_connect_error()){
             throw new Exception('Could not connect to DB');
         }
+        $this->connection->query("SET NAMES 'utf8'");
+        $this->connection->query("SET CHARACTER SET 'utf8'");
+        $this->connection->query("SET SESSION collation_connection = 'utf8_general_ci'");
     }
 
     public function query($sql){

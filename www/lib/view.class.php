@@ -45,7 +45,7 @@ class View{
 
     public function render(){
         // К этим сессиям еще есть вопросы ;), тут их, иди не тут их
-        $loggedin = Session::get('user') ? 1 : 0;
+//        $loggedin = Session::get('user') ? 1 : 0;
 
         $data = $this->data;
 

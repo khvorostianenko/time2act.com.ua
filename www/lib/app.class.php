@@ -35,8 +35,8 @@ class App{
 
         $layout = self::$router->getRoute();
         if( $layout == 'admin' && Session::get('role') != 'admin'){
-            if ($controller_method != 'admin_login'){
-                Router::redirect('/admin/users/login');
+            if ($controller_method != 'admin_index' || $controller_class != 'SigninController'){
+                Router::redirect('/admin/signin');
             }
         }
 
