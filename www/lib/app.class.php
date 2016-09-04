@@ -21,7 +21,7 @@ class App{
         self::$router = new Router($uri);
         
         // Создаем подключение к базе данных
-        self::$db = new DB(Config::get('db.host'), Config::get('db.user'), Config::get('db.password'), Config::get('db.db_name'));
+        self::$db = DB::getInstance(Config::get('db.host'), Config::get('db.user'), Config::get('db.password'), Config::get('db.db_name'));
 
         // Загружаем параметры языка, значение по умолчанию 'en'
         Lang::load(self::$router->getLanguage());

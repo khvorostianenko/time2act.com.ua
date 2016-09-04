@@ -1,0 +1,7 @@
+<form class="form-horizontal col-md-4 table table-striped" role="form"   style="width: 900px;" action="" method="post">
+    <input hidden type="text" name="id" value="<?=$data['faq']['id']?>"><br>
+    <textarea class="form-control" name="question"><?=$data['faq']['question']?></textarea><br>
+    <textarea class="form-control" name="answer" style="height: 200px"><?=$data['faq']['answer']?></textarea><br>
+    <input type="checkbox" name="is_published" <?=($data['faq']['is_published'])? "checked" : "" ?>><br>
+    <button class="btn btn-success" type="submit">Сохранить запись</button>
+</form>

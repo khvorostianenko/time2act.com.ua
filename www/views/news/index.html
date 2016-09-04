@@ -1,8 +1,25 @@
 <div class="col-md-9">
-    Новость №1
-    <br>
-    Новость №2
-    <br>
-    Новость №3
-    <br>
+
+    <table>
+        <?php for($i = 0; $i < count($data['news']); $i++):?>
+            <?php if($data['news'][$i]['is_published'] == 1): ?>
+                <tr>
+                    <td>
+                        <?=$data['news'][$i]['date']?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?=$data['news'][$i]['title']?>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">
+                        <?=$data['news'][$i]['news']?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php endfor; ?>
+    </table>
+
 </div>

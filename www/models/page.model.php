@@ -5,7 +5,7 @@
  * Date: 03.08.2016
  * Time: 15:33
  */
-class Page extends Model{
+class PageModel extends Model{
     
     public function getList($only_published = false){
         $sql = "select * from pages where 1";

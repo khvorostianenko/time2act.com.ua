@@ -1,0 +1,32 @@
+<h3>Страница редактирования "новостей"</h3>
+<table class="table table-striped" style="width: 1100px;">
+    <?php for($i = 0; $i<count($data['news']); $i++): ?>
+    <tr>
+        <td><?=$data['news'][$i]['id']?></td>
+        <td><?=$data['news'][$i]['date']?></td>
+        <td><?=$data['news'][$i]['title']?></td>
+        <td><?=$data['news'][$i]['news']?></td>
+
+        <td><input disabled type="checkbox" <?=($data['news'][$i]['is_published'])? "checked" : "" ?>>
+        </td>
+
+        <td>
+            <a href="/admin/news/edit/<?=$data['news'][$i]['id']?>">
+                <button class="btn btn-primary">Править</button>
+            </a>
+        </td>
+        <td>
+            <a href="/admin/news/delete/<?=$data['news'][$i]['id']?>" onclick="return confirmDelete();">
+                <button class="btn btn-danger">Удалить</button>
+            </a>
+        </td>
+    </tr>
+    <?php endfor; ?>
+    <tr>
+        <td colspan="7" style="text-align: center">
+            <a href="/admin/news/add">
+                <button class="btn btn-success">Добавить новую запись в базу FAQ</button>
+            </a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,8 @@
+<form class="form-horizontal col-md-4 table table-striped" role="form"   style="width: 900px;" action="" method="post">
+    <input hidden type="text" name="id" value="<?=$data['news']['id']?>"><br>
+    <input class="form-control" type="text" name="date" value="<?=$data['news']['date']?>"><br>
+    <textarea class="form-control" name="title"><?=$data['news']['title']?></textarea><br>
+    <textarea class="form-control" name="news" style="height: 200px"><?=$data['news']['news']?></textarea><br>
+    <input type="checkbox" name="is_published" <?=($data['news']['is_published'])? "checked" : "" ?>><br>
+    <button class="btn btn-success" type="submit">Сохранить запись</button>
+</form>

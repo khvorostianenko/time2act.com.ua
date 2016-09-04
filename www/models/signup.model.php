@@ -15,7 +15,7 @@ class SignupModel extends Model{
     public function userCreate($email, $password) {
         $password = $this->db->escape($password);
         $password_hash = Password::encryptPass($password);
-        $sql = "INSERT INTO users VALUES( NULL, '{$email}', '{$password_hash}')";
+        $sql = "INSERT INTO users VALUES( NULL, '{$email}', '{$password_hash}', 'user')";
         $result = $this->db->query($sql);
         if( isset($result)){
             return true;
