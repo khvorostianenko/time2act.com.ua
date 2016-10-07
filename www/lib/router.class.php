@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 01.08.2016
- * Time: 10:13
- */
+
 class Router{
     protected $uri;
     protected $controller;

@@ -3,9 +3,7 @@
 class Validate
 {
     private $fail;
-    private $email;
     private $password;
-    private $passwordRepeat;
 
     public function __construct($params)
     {

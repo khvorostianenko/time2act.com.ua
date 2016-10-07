@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 03.08.2016
- * Time: 15:18
- */
+
 class DB{
     protected static $instance = null;
     protected $connection;
@@ -28,19 +23,6 @@ class DB{
         self::$query_counter = self::$query_counter +  1;
         echo self::$query_counter;
     }
-
-
-    // Подлностью рабочий вариант
-//    public function __construct($host, $user, $password, $db_name)
-//    {
-//        $this->connection = new mysqli($host, $user, $password, $db_name);
-//        if(mysqli_connect_error()){
-//            throw new Exception('Could not connect to DB');
-//        }
-//        $this->connection->query("SET NAMES 'utf8'");
-//        $this->connection->query("SET CHARACTER SET 'utf8'");
-//        $this->connection->query("SET SESSION collation_connection = 'utf8_general_ci'");
-//    }
 
     public static function getInstance($host, $user, $password, $db_name){
         if(self::$instance == null)
@@ -95,3 +77,16 @@ class DB{
         return mysqli_escape_string($this->connection, $str);
     }
 }
+
+
+// Полностью рабочий старый вариант
+//    public function __construct($host, $user, $password, $db_name)
+//    {
+//        $this->connection = new mysqli($host, $user, $password, $db_name);
+//        if(mysqli_connect_error()){
+//            throw new Exception('Could not connect to DB');
+//        }
+//        $this->connection->query("SET NAMES 'utf8'");
+//        $this->connection->query("SET CHARACTER SET 'utf8'");
+//        $this->connection->query("SET SESSION collation_connection = 'utf8_general_ci'");
+//    }

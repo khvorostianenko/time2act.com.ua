@@ -9,6 +9,9 @@ class SignupController extends Controller{
     
     public function index()
     {
+
+        Session::setFlash('Заполните форму для регистрации');
+
         $this->data['message'] = '';
         $this->data['color'] = '';
         $this->data['email'] = '';
@@ -45,7 +48,6 @@ class SignupController extends Controller{
                         $this->data['email'] = '';
                     }
                 }
-                /*Завершение нового варианта*/
             }
         }
     }

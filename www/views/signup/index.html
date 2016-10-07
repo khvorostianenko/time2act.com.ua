@@ -7,7 +7,16 @@
     <div style="width: 70%; margin: auto; display: block ">
         <div id="registrationForm" class="form-group">
             <p style="color: <?=$data['color']?>"><?=$data['message']?></p>
-            <p>Заполните форму для регистрации</p>
+
+            <!--Вариант вывода сообщения из мвс-->
+            <?php if(Session::hasFlash()){ ?>
+            <div class="alert alert-info" role="alert">
+                <?php Session::flash(); ?>
+            </div>
+            <?php } ?>
+
+            <!--Было-->
+            <!--<p>Заполните форму для регистрации</p>-->
             <div id='jsWarnings' style='color: red'></div>
             <form action="" method="post" role="form" onSubmit="return validate_signup(this)">
                 <input class="form-control" type="text" name="email" placeholder="Введите email" value="<?=$data['email']?>"><br>

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 29.08.2016
- * Time: 19:35
- */
+
 class FaqModel extends Model{
 
     public function getList(){

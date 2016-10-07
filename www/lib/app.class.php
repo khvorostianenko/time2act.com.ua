@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 02.08.2016
- * Time: 11:45
- */
+
 class App{
     protected static $router;
 
@@ -16,6 +11,8 @@ class App{
     }
 
     public static function run($uri){
+
+        
         // Создаем класс Роутер, передаем uri, разбиваем ури на части:
         // Пример: http://www.mvc.com/contacts/
         self::$router = new Router($uri);
@@ -64,6 +61,10 @@ class App{
             
             // Объект "представления" -> render()
             $content = $view_object->render();
+            if(isset($_POST['loyout_flag']) && $_POST['loyout_flag'] == 1){
+                echo $content;
+                return;
+            }
         } else {
             throw new Exception('Method '.$controller_method.' of class '.$controller_class.' does not exist.');
         }

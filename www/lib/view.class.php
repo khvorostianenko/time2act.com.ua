@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 02.08.2016
- * Time: 14:00
- */
+
 class View{
     protected $data;
 

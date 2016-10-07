@@ -1,0 +1,30 @@
+<div class="col-md-9">
+    <br>
+    <img id="main-header-image" src="/img/big_logo.gif" style="width: 30%; margin: auto; display: block "/>
+    <br>
+    <br>
+    <div style="width: 70%; margin: auto; display: block ">
+        <div id="registrationForm" class="form-group">
+            <p style="color:<?=$data['color']?>">
+                <?=$data['message']?>
+            </p>
+
+            <!--Вариант вывода сообщения из мвс-->
+            <?php if(Session::hasFlash()){ ?>
+            <div class="alert alert-info" role="alert">
+                <?php Session::flash(); ?>
+            </div>
+            <?php } ?>
+            <br>
+            <!--Раньше было так-->
+            <!--<p>Войти в личный кабинет</p>-->
+            <form id="reg" action="" method="post" role="form">
+                <input class="form-control" type="text" name="email" placeholder="Введите email" form="reg"><br>
+                <input class="btn btn-success" type="submit" value="Сменить пароль" form="reg">
+            </form>
+
+        </div>
+    </div>
+    <br>
+    <br>
+</div>

@@ -6,13 +6,26 @@
     <br>
     <div style="width: 70%; margin: auto; display: block ">
         <div id="registrationForm" class="form-group">
-            <p style="color:<?=$data['color']?>"><?=$data['message']?></p>
-            <p>Войти в личный кабинет</p>
+            <p style="color:<?=$data['color']?>">
+                <?=$data['message']?>
+            </p>
+
+            <!--Вариант вывода сообщения из мвс-->
+            <?php if(Session::hasFlash()){ ?>
+                <div class="alert alert-info" role="alert">
+                    <?php Session::flash(); ?>
+                </div>
+            <?php } ?>
+
+            <!--Раньше было так-->
+            <!--<p>Войти в личный кабинет</p>-->
             <form id="reg" action="" method="post" role="form">
                 <input class="form-control" type="text" name="email" placeholder="Введите email" form="reg"><br>
                 <input class="form-control" type="password" name="password" placeholder="Введите пароль" form="reg"><br>
-                <input class="btn btn-success" type="submit" value="Войти" form="reg">
+                <input class="btn btn-success btn-100" type="submit" value="Войти" form="reg">
+                <a class="btn btn-link" href="/signin/forget">Забыли пароль?</a>
             </form>
+
         </div>
     </div>
     <br>

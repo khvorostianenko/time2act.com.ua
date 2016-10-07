@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 01.08.2016
- * Time: 10:21
- */
-require_once(ROOT.DS.'config'.DS.'config.php');
 
-function __autoload($class_name){
+function mvc_autoloader($class_name){
     $lib_path = ROOT.DS.'lib'.DS.strtolower($class_name).'.class.php';
     $controllers_path = ROOT.DS.'controllers'.DS.str_replace('controller', '', strtolower($class_name)).'.controller.php';
     $model_path = ROOT.DS.'models'.DS.str_replace('model', '', strtolower($class_name)).'.model.php';
@@ -24,6 +17,10 @@ function __autoload($class_name){
 
 
 }
+
+spl_autoload_register('mvc_autoloader');
+
+require_once(ROOT.DS.'config'.DS.'config.php');
 
 function __($key, $default_value = ''){
     return Lang::get($key, $default_value);

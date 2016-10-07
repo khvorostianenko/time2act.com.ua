@@ -2,17 +2,17 @@
 
     <div class="accordeon">
 
-<?php for($i = 0; $i < count($data['faq']); $i++):?>
-        <?php if($data['faq'][$i]['is_published'] == 1): ?>
-            <dl>
-                <dt class="bg-info">
-                    <?=$data['faq'][$i]['question']?>
-                </dt>
-                <dd>
-                    <?=$data['faq'][$i]['answer']?>
-                </dd>
-            </dl>
-        <?php endif; ?>
-<?php endfor; ?>
+        <?php for($i = 0; $i < count($data['faq']); $i++):?>
+                <?php if($data['faq'][$i]['is_published'] == 1): ?>
+                    <dl>
+                        <dt class="bg-info">
+                            <?=$data['faq'][$i]['question']?>
+                        </dt>
+                        <dd>
+                            <?=$data['faq'][$i]['answer']?>
+                        </dd>
+                    </dl>
+                <?php endif; ?>
+        <?php endfor; ?>
     </div>
 </div>

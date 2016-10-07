@@ -1,4 +1,5 @@
 <?php
+
 class SignupModel extends Model{
     
     public function emailCheck($email){
@@ -22,4 +23,16 @@ class SignupModel extends Model{
         }
         return false;
     }
+
+    public function userPasswordUpdate($email, $password){
+        $password = $this->db->escape($password);
+        $password_hash = Password::encryptPass($password);
+        $sql = "UPDATE users SET password = '{$password_hash}' WHERE email = '{$email}'";
+        $result = $this->db->query($sql);
+        if( isset($result)){
+            return true;
+        }
+        return false;
+    }
+
 }

@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Михаил
- * Date: 04.08.2016
- * Time: 13:25
- */
+
 class Message extends Model{
     public function save($data, $id = NULL){
         if(!isset($data['name']) || !isset($data['email']) || !isset($data['message'])){
