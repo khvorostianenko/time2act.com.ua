@@ -61,6 +61,7 @@ class App{
             
             // Объект "представления" -> render()
             $content = $view_object->render();
+            
             if(isset($_POST['loyout_flag']) && $_POST['loyout_flag'] == 1){
                 echo $content;
                 return;

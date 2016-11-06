@@ -15,10 +15,20 @@ class FaqController extends Controller{
     public function index()
     {
         $this->data['faq'] = $this->model->getList();
+
     }
 
     public function admin_index(){
-        $this->data['faq'] = $this->model->getList();
+        if(!empty($this->params[0]))
+        {
+            $this->data['pagination'] = $this->params[0];
+        } else {
+            $this->data['pagination'] = '';
+        }
+
+        Session::set('page','faq');
+        $this->data['faq'] = $this->model->getList($this->data['pagination']);
+        $this->data['count_for_paginatior'] = (is_int($this->model->getCount()/3))? $this->model->getCount()/3:floor($this->model->getCount()/3 + 1);
     }
 
     public function admin_edit(){

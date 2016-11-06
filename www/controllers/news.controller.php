@@ -11,10 +11,37 @@ class NewsController extends Controller{
     {
         $this->data['news'] = $this->model->getList();
     }
+
+    public function admin_search(){
+
+        if(!empty($this->params[0]))
+        {
+            $this->data['pagination'] = $this->params[0];
+        } else {
+            $this->data['pagination'] = '';
+        }
+
+        $this->data['news'] = $this->model->search($_POST, $this->data['pagination']);
+        $this->data['count'] = $this->data['news'][0]['count'];
+        $this->data['count_for_paginatior'] = (is_int($this->data['count']/7))? $this->data['count']/7:floor($this->data['count']/7 + 1);
+
+    }
+    
     
     public function admin_index()
     {
-        $this->data['news'] = $this->model->getList();
+
+        if(!empty($this->params[0]))
+        {
+            $this->data['pagination'] = $this->params[0];
+        } else {
+            $this->data['pagination'] = '';
+        }
+
+        Session::set('page','news');
+        $this->data['news'] = $this->model->getList($this->data['pagination']);
+        $this->data['count'] = $this->model->getCount();
+        $this->data['count_for_paginatior'] = (is_int($this->data['count']/7))? $this->data['count']/7:floor($this->data['count']/7 + 1);
     }
 
     public function admin_edit(){
@@ -39,8 +66,8 @@ class NewsController extends Controller{
     }
 
     public function admin_add(){
-        if((isset($_POST['date']) && isset($_POST['title']) && isset($_POST['news']))
-            && ($_POST['date'] != '' && $_POST['title'] != '' && $_POST['news'] != '')){
+        if((isset($_POST['title']) && isset($_POST['news']))
+            && ($_POST['title'] != '' && $_POST['news'] != '')){
             $result = $this->model->save($_POST);
             if($result){
                 Session::setFlash('Page was saved.');

@@ -1,5 +1,5 @@
 <?php
-
+// Реаливать чистый Registry
 class Config{
     protected static $settings = array();
 

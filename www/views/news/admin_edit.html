@@ -1,8 +1,83 @@
-<form class="form-horizontal col-md-4 table table-striped" role="form"   style="width: 900px;" action="" method="post">
-    <input hidden type="text" name="id" value="<?=$data['news']['id']?>"><br>
-    <input class="form-control" type="text" name="date" value="<?=$data['news']['date']?>"><br>
-    <textarea class="form-control" name="title"><?=$data['news']['title']?></textarea><br>
-    <textarea class="form-control" name="news" style="height: 200px"><?=$data['news']['news']?></textarea><br>
-    <input type="checkbox" name="is_published" <?=($data['news']['is_published'])? "checked" : "" ?>><br>
-    <button class="btn btn-success" type="submit">Сохранить запись</button>
-</form>
+<!--<form class="form-horizontal col-md-4 table table-striped" role="form"   style="width: 900px;" action="" method="post">-->
+    <!--<input hidden type="text" name="id" value="<?=$data['news']['id']?>"><br>-->
+    <!--<input class="form-control" type="text" name="date" value="<?=$data['news']['date']?>"><br>-->
+    <!--<textarea class="form-control" name="title"><?=$data['news']['title']?></textarea><br>-->
+    <!--<textarea class="form-control" name="news" style="height: 200px"><?=$data['news']['news']?></textarea><br>-->
+    <!--<input type="checkbox" name="is_published" <?=($data['news']['is_published'])? "checked" : "" ?>><br>-->
+    <!--<button class="btn btn-success" type="submit">Сохранить запись</button>-->
+<!--</form>-->
+
+
+
+<!-- Container -->
+<div id="container">
+    <div class="shell">
+        <!-- Main -->
+        <div id="main">
+            <div class="cl">&nbsp;</div>
+
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Box -->
+                <div class="box">
+                    <!-- Box Head -->
+                    <div class="box-head">
+                        <h2>Новая новость</h2>
+                    </div>
+                    <!-- End Box Head -->
+
+                    <form  action="" method="post" id="edit_item">
+
+                        <!-- Form -->
+                        <div class="form">
+                            <p>
+                                <input hidden type="text" name="id" value="<?=$data['news']['id']?>">
+                                <span class="req">Максимум 100 символов</span>
+                                <label>Заголовок новости<span></span></label>
+                                <input name="title" form="edit_item" type="text" class="field size1" value="<?=$data['news']['title']?>">
+                            </p>
+                            <p class="inline-field">
+                                <span class="req"></span>
+                                <label>Дата в формате гггг - мм - дд<span></span></label>
+                                <input name="date" form="edit_item" type="text" class="field size1" value="<?=$data['news']['date']?>">
+                            </p>
+
+                            <p>
+                                <span class="req"></span>
+                                <label>Напишите текст новости<span></span></label>
+                                <textarea name="news" form="edit_item" class="field size1" rows="10" cols="30"><?=$data['news']['news']?></textarea>
+                            </p>
+                            <label>Опубликовать</label>
+                            <p class="select-all">
+                                <input name="is_published" form="edit_item" type="checkbox" class="checkbox" <?=($data['news']['is_published'])? "checked" : "" ?>>
+                            </p>
+
+
+                        </div>
+                        <!-- End Form -->
+
+                        <!-- Form Buttons -->
+                        <div class="buttons">
+                            <input form="edit_item" type="submit" class="button" value="Сохранить">
+                        </div>
+                        <!-- End Form Buttons -->
+                    </form>
+                </div>
+                <!-- End Box -->
+
+            </div>
+            <!-- End Content -->
+
+
+
+            <div class="cl">&nbsp;</div>
+        </div>
+        <!-- Main -->
+    </div>
+</div>
+<!-- End Container -->
+
+
+
+

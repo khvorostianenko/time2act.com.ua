@@ -1,0 +1,18 @@
+<div class="col-md-12">
+    Вы находитесь в админ панели<br>
+    Ваша роль: <?php echo Session::get('role')?>
+</div>
+<div>
+    <a onClick="active_tab('news')"  class="nav btn btn-primary" style="width: 100px;">
+        Новости
+    </a>
+    <a onClick="active_tab('faq')"  class="nav btn btn-primary" style="width: 100px;">
+        Справка
+    </a>
+    <a href="/admin/logout" class="nav btn btn-primary" style="width: 100px;">
+        Выйти
+    </a>
+</div>
+<div id="news"></div>
+<div id="faq" style="display: none"></div>
+

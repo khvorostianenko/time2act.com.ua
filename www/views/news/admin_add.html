@@ -1,10 +1,71 @@
-<br>
-<form class="form-horizontal col-md-6" role="form" action="" method="post">
-    <input class="form-control" type="text" name="date" placeholder="Укажите дату в формате гггг - мм - дд"><br>
-    <textarea class="form-control" name="title" style="height: 200px" placeholder="Напишите заголовок новости"></textarea><br>
-    <textarea class="form-control" name="news" style="height: 200px" placeholder="Напишите текст новости"></textarea><br>
-    <label>Опубликовать?
-        <input type="checkbox" name="is_published" checked>
-    </label><br>
-    <button class="btn btn-success" type="submit">Добавить новую запись</button>
-</form>
+
+<!-- Container -->
+<div id="container">
+    <div class="shell">
+        <!-- Main -->
+        <div id="main">
+            <div class="cl">&nbsp;</div>
+
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Box -->
+                <div class="box">
+                    <!-- Box Head -->
+                    <div class="box-head">
+                        <h2>Новая новость</h2>
+                    </div>
+                    <!-- End Box Head -->
+
+                    <form  action="" method="post" id="new_item">
+
+                        <!-- Form -->
+                        <div class="form">
+                            <p>
+                                <span class="req">Максимум 100 символов</span>
+                                <label>Заголовок новости<span></span></label>
+                                <input name="title" form="new_item" type="text" class="field size1" />
+                            </p>
+                            <p class="inline-field">
+                                <span class="req"></span>
+                                <!--<label>Будет указана текущая дата<span></span></label>-->
+                            </p>
+
+                            <p>
+                                <span class="req"></span>
+                                <label>Напишите текст новости<span></span></label>
+                                <textarea name="news" form="new_item" class="field size1" rows="10" cols="30"></textarea>
+                            </p>
+                            <label>Опубликовать</label>
+                            <p class="select-all">
+                                <input name="is_published" checked form="new_item" type="checkbox" class="checkbox">
+                            </p>
+
+
+                        </div>
+                        <!-- End Form -->
+
+                        <!-- Form Buttons -->
+                        <div class="buttons">
+                            <input form="new_item" type="submit" class="button" value="Сохранить" />
+                        </div>
+                        <!-- End Form Buttons -->
+                    </form>
+                </div>
+                <!-- End Box -->
+
+            </div>
+            <!-- End Content -->
+
+
+
+            <div class="cl">&nbsp;</div>
+        </div>
+        <!-- Main -->
+    </div>
+</div>
+<!-- End Container -->
+
+
+
+

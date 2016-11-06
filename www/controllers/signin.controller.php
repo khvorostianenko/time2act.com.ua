@@ -1,5 +1,9 @@
 <?php
 
+// В данном классе помимо авторизации на сайт содержатся методы смены пароля
+// используется класс Mail папки lib
+// используется класс validate
+// класс password
 class SigninController extends Controller{
 
     public function __construct($data = array())
@@ -60,6 +64,7 @@ class SigninController extends Controller{
         // Постараться убрать тут инициализацию
         $this->data['message'] = '';
         $this->data['color'] = '';
+        $_POST['loyout_flag'] = 1;
 
         if(isset($_POST['email']) && isset($_POST['password']))
         {

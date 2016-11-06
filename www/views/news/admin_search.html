@@ -33,11 +33,21 @@
                 <div class="box">
                     <!-- Box Head -->
                     <div class="box-head">
-                        <h2 class="left">Материалы</h2>
-                        <div class="right">
-                            <label>Поиск по контенту</label>
-                            <input type="text" class="field small-field" placeholder=" минимум 5 букв">
-                            <input type="submit" class="button" value="Поиск">
+                        <h2 class="left"><?=$data['news'][0]['message']?> (найдено <?=$data['count']?> записей)</h2>
+                        <div style="text-align: right">
+                            <!--<form method="post" action="/admin/news/search" id="search">-->
+                                <!--<label>Параметры поиска: &nbsp; период </label>-->
+                                <!--<select form="search" name="period">-->
+                                    <!--<option value="1">день</option>-->
+                                    <!--<option value="30">месяц</option>-->
+                                    <!--<option value="" selected>все время</option>-->
+                                <!--</select>&nbsp;&nbsp;-->
+                                <!--<label>контент: </label>-->
+                                <!--<input name="content" form="search" type="text" class="field small-field" placeholder=" минимум 5 букв">-->
+                                <!--<label>опуб:</label>-->
+                                <!--<input name="is_published" form="search" type="checkbox">&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                <a href="/admin/news" class="button">Вернуться к общему списку</a>
+                            <!--</form>-->
                         </div>
                     </div>
                     <!-- End Box Head -->
@@ -60,13 +70,13 @@
                                 $active = 1; // текущая активная страница
                             }
 
-                            $count_show_pages = 5; //  количество отображаемых страниц.
+                            $count_show_pages = 7   ; //  количество отображаемых страниц.
                             // Например, если будет 1000 страниц, то вывести их все весьма проблемно.
                             // Поэтому отображаться будет только заданное количество в этом параметре.
                             //$url = "/index.php";
-                            $url = "/admin/faq/index/1";
+                            $url = "/admin/news/search/1";
                             //$url_page = "/index.php?page=";
-                            $url_page = "/admin/faq/index/";
+                            $url_page = "/admin/news/search/";
 
                             paginator($count_pages, $active, $count_show_pages, $url, $url_page);
                             ?>
@@ -79,12 +89,12 @@
                                     <!--<input type="checkbox" class="checkbox" />-->
                                 </th>
                                 <th width="13">id</th>
-                                <th>Вопрос</th>
-                                <th>Ответ</th>
+                                <th>Название</th>
+                                <th>Дата</th>
                                 <th>Опубл</th>
                                 <th width="110" class="ac">Действия</th>
                             </tr>
-                            <?php for($i = 0; $i<count($data['faq']); $i++): ?>
+                            <?php for($i = 0; $i<count($data['news']); $i++): ?>
                             <tr>
 
 
@@ -92,14 +102,20 @@
                                 <td>
                                     <!--<input type="checkbox" class="checkbox" />-->
                                 </td>
-                                <td width="13"><?=$data['faq'][$i]['id']?></td>
-                                <td><h3><a href="#"><?=$data['faq'][$i]['question']?></a></h3></td>
-                                <td><?=$data['faq'][$i]['answer']?></td>
+                                <td width="13"><?=$data['news'][$i]['id']?></td>
                                 <td>
-                                    <input disabled type="checkbox" <?=($data['faq'][$i]['is_published'])? "checked" : "" ?>>
+                                    <h3>
+                                        <a href="/admin/news/edit/<?=$data['news'][$i]['id']?>">
+                                            <?=$data['news'][$i]['title']?>
+                                        </a>
+                                    </h3>
+                                </td>
+                                <td><?=$data['news'][$i]['date']?></td>
+                                <td>
+                                    <input disabled type="checkbox" <?=($data['news'][$i]['is_published'])? "checked" : "" ?>>
                                 </td>
                                 <td>
-                                    <a href="/admin/faq/delete/<?=$data['faq'][$i]['id']?>" onclick="return confirmDelete();" class="ico del">Удалить</a><a href="/admin/faq/edit/<?=$data['faq'][$i]['id']?>" class="ico edit">Править</a>
+                                    <a href="/admin/news/delete/<?=$data['news'][$i]['id']?>" onclick="return confirmDelete();" class="ico del">Удалить</a><a href="/admin/news/edit/<?=$data['news'][$i]['id']?>" class="ico edit">Править</a>
                                 </td>
                             </tr>
                             <?php endfor;?>
@@ -107,17 +123,10 @@
 
 
                     </div>
-                    <!-- Table -->
 
                 </div>
-                <!-- End Box Блок с материалами -->
-
-                <!-- End Content -->
-
-                <!-- Добавить пункт -->
-                <a href="/admin/faq/add" class="add-button"><span>Новая запись</span></a>
-                <div class="cl">&nbsp;</div>
-                <!-- End Добавить пункт -->
+                <!--<a href="/admin/news/add" class="add-button"><span>Новая запись</span></a>-->
+                <!--<div class="cl">&nbsp;</div>-->
 
             </div>
 
@@ -126,3 +135,4 @@
     </div>
 </div>
 <!-- End Container -->
+
